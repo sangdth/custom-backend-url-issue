@@ -1,25 +1,26 @@
-## Nhost & Next.js example (WIP)
-
-This demo is a work in progress, further improvements are to come
+## Nhost & Next.js with custom backend url issue
 
 ### Installation
 
-First, clone this repo. Then run the commands:
+#### 1. First, clone this repo.
 
-```sh
-cd examples/nextjs
-yarn
-yarn dev
+#### 2. Then, change the client and server url to:
+
+```
+  client_url: https://your-client-subdomain.ngrok.io
+  server_url: https://your-server-subdomain.ngrok.io
 ```
 
-If you want to use this demo with your own cloud instance:
+#### 3. Run both frontend and backend
 
-- modify the `BACKEND_URL` value in `src/helpers/index.ts`
-- don't forget to change the client URL in the Nhost console so email verification will work: `Users -> Login Settings -> Client login URLs`: `http://localhost:4000`
+#### 4. Register new user with username/password method
 
-If you want to use a local Nhost instance, start the CLI in parallel to Nextjs:
+#### 5. Open MailHog
+Click on the confirmation link.
 
-```sh
-# Inside examples/nextjs
-nhost -d
-```
+#### 6. See issue
+The user email is not confirmed.
+
+### Expect
+
+The user email can be confirmed and will be redirected to https://your-client-subdomain.ngrok.io
